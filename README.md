@@ -1,73 +1,97 @@
-# Welcome to your Lovable project
+# 🛒 QuickCart
 
-## Project info
+A minimal and fast e-commerce web app built using the MERN stack with PostgreSQL. Users can submit and view products easily, with an smart search feature for improved product discovery.
 
-**URL**: https://lovable.dev/projects/8ef6ff1a-405f-4d3c-8680-4213b9470b98
+---
 
-## How can I edit this code?
+## 🚀 Live Demo
 
-There are several ways of editing your application.
+🔗 [Live Site](https://quickcart-alpha.vercel.app/)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8ef6ff1a-405f-4d3c-8680-4213b9470b98) and start prompting.
+## 📦 Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- 📝 **Product Submission**  
+  Submit a new product with name, price, description, and optional image.
 
-**Use your preferred IDE**
+- 🗂️ **Product Listing**  
+  View submitted products in a clean and responsive card layout.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- 🔄 **Real-time Updates**  
+  Products appear instantly on submission without page reload.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- 🔍 **Search Functionality** 
+  - Simple keyword-based filtering by name or description.
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🛠️ Tech Stack
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- **Frontend**: React.js + Tailwind CSS
+- **Backend**: Node.js + Express
+- **Database**: PostgreSQL
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🧰 Local Setup Instructions
 
-**Edit a file directly in GitHub**
+### ✅ Prerequisites
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Node.js (v14 or higher)
+- PostgreSQL
+- Git
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### ⚙️ Installation
 
-## What technologies are used for this project?
+1. **Clone the repository**
 
-This project is built with:
+```bash
+git clone https://github.com/kosangyadav/QuickCart.git
+cd quickcart
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+	2.	Install dependencies
 
-## How can I deploy this project?
+npm install
 
-Simply open [Lovable](https://lovable.dev/projects/8ef6ff1a-405f-4d3c-8680-4213b9470b98) and click on Share -> Publish.
+	3.	Configure PostgreSQL
 
-## Can I connect a custom domain to my Lovable project?
+	•	Create a new PostgreSQL database.
+	•	Create a .env file in the root directory and add the following environment variables:
 
-Yes, you can!
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=your_postgres_username
+DB_PASSWORD=your_postgres_password
+DB_NAME=quickcart
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+	4.	Run database migrations (if needed)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+npm run migrate
+
+	5.	Start the server
+
+npm start
+
+The app should now be running at:
+🔗 http://localhost:3000
+
+⸻
+
+🗃️ Folder Structure
+
+quickcart/
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   └── server.js
+├── frontend/
+│   ├── components/
+│   ├── pages/
+│   └── App.js
+├── .env
+├── package.json
+└── README.md
