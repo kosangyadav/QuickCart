@@ -36,6 +36,8 @@ type ProductFormProps = {
 };
 
 export const ProductForm: React.FC<ProductFormProps> = ({ onSubmit }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,7 +48,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({ onSubmit }) => {
     },
   });
 
-  const handleSubmit = (values: z.infer<typeof formSchema>) => {
+  const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+    setIsSubmitting(true);
+    
     const productData: Product = {
       name: values.name,
       price: values.price,
@@ -54,9 +58,15 @@ export const ProductForm: React.FC<ProductFormProps> = ({ onSubmit }) => {
       imageUrl: values.imageUrl || undefined,
     };
 
-    onSubmit(productData);
-    toast.success("Product submitted successfully!");
-    form.reset();
+    try {
+      await onSubmit(productData);
+      form.reset();
+    } catch (error) {
+      console.error("Error submitting product:", error);
+      toast.error("Failed to submit product");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -131,8 +141,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({ onSubmit }) => {
         <Button 
           type="submit" 
           className="w-full md:w-auto bg-ecommerce-primary hover:bg-ecommerce-secondary"
+          disabled={isSubmitting}
         >
-          Submit Product
+          {isSubmitting ? "Submitting..." : "Submit Product"}
         </Button>
       </form>
     </Form>

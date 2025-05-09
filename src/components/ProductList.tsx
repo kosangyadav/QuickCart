@@ -9,12 +9,14 @@ type ProductListProps = {
   products: Product[];
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  isLoading: boolean;
 };
 
 export const ProductList: React.FC<ProductListProps> = ({ 
   products, 
   searchQuery, 
-  setSearchQuery 
+  setSearchQuery,
+  isLoading
 }) => {
   return (
     <div className="space-y-6">
@@ -29,7 +31,12 @@ export const ProductList: React.FC<ProductListProps> = ({
         />
       </div>
 
-      {products.length === 0 ? (
+      {isLoading ? (
+        <div className="text-center py-10">
+          <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
+          <p className="text-gray-500">Loading products...</p>
+        </div>
+      ) : products.length === 0 ? (
         <div className="text-center py-10">
           <h3 className="text-xl font-medium text-gray-500">No products found</h3>
           <p className="text-gray-400 mt-2">
