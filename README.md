@@ -83,15 +83,15 @@ The app should now be running at:
 🗃️ Folder Structure
 
 quickcart/
-├── backend/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   └── server.js
-├── frontend/
+├── src/
 │   ├── components/
+│   ├── hooks/
+│   ├── integration/supabase/
+│   ├── lib/
 │   ├── pages/
-│   └── App.js
+│   ├── types/
+│   ├── App.tsx
+│   └── Main.tsx
 ├── .env
 ├── package.json
 └── README.md
